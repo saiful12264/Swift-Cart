@@ -16,7 +16,7 @@ const categoriesDataDisplay = (categories) => {
   // all btn
   const div = document.createElement("div");
   div.innerHTML = `
-      <button id='btn-all'  class="btn rounded-full active catbtn">All</button>
+      <button id='btn-all'  class="btn rounded-full catbtn active">All</button>
       `;
   categoriesContainer.append(div);
   const btnAll = document.getElementById("btn-all");
@@ -126,6 +126,13 @@ const removeActive = () => {
     btn.classList.remove("active");
   });
 };
+//remove navActive
+const removeNavActive = () => {
+  const btns = document.querySelectorAll(".navbtn");
+  btns.forEach((btn) => {
+    btn.classList.remove("navactive");
+  });
+};
 
 categoriesDataLoad();
 
@@ -192,8 +199,8 @@ const loadProductDetails = (id) => {
 navHome = document.querySelectorAll('.nav-home')
 navHome.forEach(home => {
     home.addEventListener('click',()=>{
-        removeActive();
-        home.classList.add('active');
+        removeNavActive();
+        home.classList.add('navactive');
         document.getElementById('banner').classList.remove('hidden');
         document.getElementById('why').classList.remove('hidden');
         document.getElementById('trending').classList.remove('hidden');
@@ -207,9 +214,9 @@ navProduct = document.querySelectorAll('.nav-products')
 navProduct.forEach(Pro => {
     Pro.addEventListener('click',()=>{
 
-        removeActive();
+        removeNavActive();
 
-        Pro.classList.add('active');
+        Pro.classList.add('navactive');
         document.getElementById('banner').classList.add('hidden');
         document.getElementById('why').classList.add('hidden');
         document.getElementById('trending').classList.add('hidden');
